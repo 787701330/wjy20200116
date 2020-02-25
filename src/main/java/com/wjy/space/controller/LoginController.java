@@ -29,7 +29,7 @@ public class LoginController {
 			if(UnknownAccountException.class.getName().equals(shiroLoginFailure)) {
 				m.addAttribute("errorMsg","亲，帐号不存在！");
 			}else if(IncorrectCredentialsException.class.getName().equals(shiroLoginFailure)) {
-				m.addAttribute("errorMsg","亲，1密码错误！");
+				m.addAttribute("errorMsg","亲，密码错误！");
 			}
 		}
 		
