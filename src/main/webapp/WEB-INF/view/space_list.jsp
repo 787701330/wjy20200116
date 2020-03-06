@@ -1,14 +1,9 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
-%>
+
 <!DOCTYPE HTML>
 <html>
 <head>
-<base href="<%=basePath%>">
 <meta charset="utf-8">
 <meta name="renderer" content="webkit|ie-comp|ie-stand">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -20,13 +15,13 @@
 <script type="text/javascript" src="lib/html5shiv.js"></script>
 <script type="text/javascript" src="lib/respond.min.js"></script>
 <![endif]-->
-<link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
-<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/H-ui.admin.css" />
-<link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.8/iconfont.css" />
-<link rel="stylesheet" type="text/css" href="static/h-ui.admin/skin/default/skin.css" id="skin" />
-<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/style.css" />
-<link rel="stylesheet" type="text/css" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet"/>
-<link rel="stylesheet" type="text/css" href="lib/bootstrap-table-master/bootstrap-table.css"/>
+<link rel="stylesheet" type="text/css" href="/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="/static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="/lib/Hui-iconfont/1.0.8/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="/static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="/static/h-ui.admin/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/lib/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="/lib/bootstrap-table-master/bootstrap-table.css"/>
 <!--[if IE 6]>
 <script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
@@ -42,23 +37,23 @@
 	</table>
 </div> 
 <!--_footer 作为公共模版分离出去-->
-<script type="text/javascript" src="lib/jquery-1.11.3/jquery-1.11.3/jquery.min.js"></script> 
-<script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
-<script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script> 
-<script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="/lib/jquery-1.11.3/jquery-1.11.3/jquery.min.js"></script> 
+<script type="text/javascript" src="/lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="/static/h-ui/js/H-ui.min.js"></script> 
+<script type="text/javascript" src="/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
 
 <!--请在下方写此页面业务相关的脚本-->
-<script type="text/javascript" src="lib/My97DatePicker/4.8/WdatePicker.js"></script> 
-<script type="text/javascript" src="lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
-<script type="text/javascript" src="lib/laypage/1.2/laypage.js"></script>
-<script type="text/javascript" src="lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="lib/bootstrap-table-master/bootstrap-table.js"></script>
-<script type="text/javascript" src="lib/bootstrap-table-master/locale/bootstrap-table-zh-CN.js"></script>
+<script type="text/javascript" src="/lib/My97DatePicker/4.8/WdatePicker.js"></script> 
+<script type="text/javascript" src="/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
+<script type="text/javascript" src="/lib/laypage/1.2/laypage.js"></script>
+<script type="text/javascript" src="/lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/lib/bootstrap-table-master/bootstrap-table.js"></script>
+<script type="text/javascript" src="/lib/bootstrap-table-master/locale/bootstrap-table-zh-CN.js"></script>
 <script type="text/javascript">
 var reN1=0;
 var pId=1;
 function space_download(id){
-	var i="space/download.do?id="+id;
+	var i="/space/download.do?id="+id;
 	window.open(i);
 }
 
@@ -70,7 +65,7 @@ function datadel(){
 	}
 	ids=ids+"";
 	layer.confirm('确认要删除吗？',function(index){
-		$.ajax({url:"space/delete.do",data:{id:ids},success:function(data){
+		$.ajax({url:"/space/delete.do",data:{id:ids},success:function(data){
 			layer.msg(data.msg,{time:1000,icon:6});
 			if(data.code=1){
 				refreshTable();
@@ -81,14 +76,14 @@ function datadel(){
 
 function space_rename(obj,id){
 	var a=$(obj).prev().val();
-	$.ajax({url:"space/rename.do",data:{id:id,name:a},success:function(data){
+	$.ajax({url:"/space/rename.do",data:{id:id,name:a},success:function(data){
 		layer.msg(data.msg,{time:1000,icon:6});
 	}})
 	refreshTable();
 }
 
 function space_move(obj,id){
-	layer_show('文件操作','space/move.do?id='+id);
+	layer_show('文件操作','/space/move.do?id='+id);
 }
 
 /*
@@ -108,7 +103,7 @@ function space_add(title,url,w,h){
 function space_del(obj,id){
 	
 	layer.confirm('确认要删除吗？',function(index){
-		$.ajax({url:"space/delete.do",data:{id:id},type:'post',success:function(data){
+		$.ajax({url:"/space/delete.do",data:{id:id},type:'post',success:function(data){
 			layer.msg(data.msg,{time:1000,icon:6});
 			if(data.code=1){
 				refreshTable();
@@ -167,7 +162,7 @@ function refreshTable(){
 <script type="text/javascript">
   $(function(){
 	  $('#spaceTable').bootstrapTable({
-		  url:'space/list.do',
+		  url:'/space/list.do',
 		  responseHandler:function(res){
 			  var data={rows:res.list,total:res.total};
 			  return data;
@@ -234,7 +229,7 @@ function refreshTable(){
   function addFolder2(value,id){
 	  $('#spaceTable').bootstrapTable('destroy');
 	  $('#spaceTable').bootstrapTable({
-		  url:'space/list.do',
+		  url:'/space/list.do',
 		  responseHandler:function(res){
 			  var data={rows:res.list,total:res.total};
 			  return data;
@@ -283,7 +278,7 @@ function refreshTable(){
   
   function folder_add2(obj){
 	  var a=$(obj).prev().val();
-	  $.ajax({url:"space/addFolder.do",data:{userId:'${user.id}',parent:pId,name:a},success:function(data){
+	  $.ajax({url:"/space/addFolder.do",data:{userId:'${user.id}',parent:pId,name:a},success:function(data){
 			layer.msg(data.msg,{time:1000,icon:6});
 				refreshTable();
 		},dataType:'json',type:'post'});
