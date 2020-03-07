@@ -1,14 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
-%>
+
 <!DOCTYPE HTML>
 <html>
 <head>
-<base href="<%=basePath%>">
 <meta charset="utf-8">
 <meta name="renderer" content="webkit|ie-comp|ie-stand">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -17,16 +12,16 @@
 <link rel="Bookmark" href="/favicon.ico" >
 <link rel="Shortcut Icon" href="/favicon.ico" />
 <!--[if lt IE 9]>
-<script type="text/javascript" src="lib/html5shiv.js"></script>
-<script type="text/javascript" src="lib/respond.min.js"></script>
+<script type="text/javascript" src="/lib/html5shiv.js"></script>
+<script type="text/javascript" src="/lib/respond.min.js"></script>
 <![endif]-->
-<link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
-<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/H-ui.admin.css" />
-<link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.8/iconfont.css" />
-<link rel="stylesheet" type="text/css" href="static/h-ui.admin/skin/default/skin.css" id="skin" />
-<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/style.css" />
-<link rel="stylesheet" type="text/css" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet"/>
-<link rel="stylesheet" type="text/css" href="lib/bootstrap-table-master/bootstrap-table.css"/>
+<link rel="stylesheet" type="text/css" href="/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="/static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="/lib/Hui-iconfont/1.0.8/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="/static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="/static/h-ui.admin/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/lib/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="/lib/bootstrap-table-master/bootstrap-table.css"/>
 <!--[if IE 6]>
 <script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
@@ -65,7 +60,7 @@ function datadel(){
 	}
 	ids=ids+"";
 	layer.confirm('确认要删除吗？',function(index){
-		$.ajax({url:"recycleBin/delete.do",data:{id:ids},success:function(data){
+		$.ajax({url:"/recycleBin/delete.do",data:{id:ids},success:function(data){
 			layer.msg(data.msg,{time:1000,icon:6});
 			if(data.code=1){
 				refreshTable();
@@ -81,7 +76,7 @@ function datadel(){
 /*管理员-删除*/
 function recycleBin_del(obj,id){
 	layer.confirm('确认要删除吗？',function(index){
-		$.ajax({url:"recycleBin/delete.do",data:{id:id},type:'post',success:function(data){
+		$.ajax({url:"/recycleBin/delete.do",data:{id:id},type:'post',success:function(data){
 			layer.msg(data.msg,{time:1000,icon:6});
 			if(data.code=1){
 				refreshTable();
@@ -115,7 +110,7 @@ function refreshTable(){
 <script type="text/javascript">
   $(function(){
 	  $('#recycleBinTable').bootstrapTable({
-		  url:'recycleBin/list.do',
+		  url:'/recycleBin/list.do',
 		  responseHandler:function(res){
 			  var data={rows:res.list,total:res.total};
 			  return data;
@@ -178,7 +173,7 @@ function refreshTable(){
   function addFolder2(value,id){
 	  $('#recycleBinTable').bootstrapTable('destroy');
 	  $('#recycleBinTable').bootstrapTable({
-		  url:'recycleBin/list.do',
+		  url:'/recycleBin/list.do',
 		  responseHandler:function(res){
 			  var data={rows:res.list,total:res.total};
 			  return data;
@@ -219,7 +214,7 @@ function refreshTable(){
 
   function recycleBin_setState(id){
 		layer.confirm('确认要还原吗？',function(index){
-			$.ajax({url:"recycleBin/move.do",data:{id:id},type:'post',success:function(data){
+			$.ajax({url:"/recycleBin/move.do",data:{id:id},type:'post',success:function(data){
 				layer.msg(data.msg,{time:1000,icon:6});
 				if(data.code=1){
 					refreshTable();

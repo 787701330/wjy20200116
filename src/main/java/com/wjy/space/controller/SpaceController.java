@@ -74,7 +74,7 @@ public class SpaceController {
 		return "other_list";
 	}
 	
-	@RequestMapping("/torrent_list.do")
+	@RequestMapping("/other_list.do")
 	@ResponseBody
 	public PageInfo<Storage> other_list(Long userId, String keyword, @RequestParam(defaultValue = "1") Long parent,
 			@RequestParam(defaultValue = "1") int state, @RequestParam(defaultValue = "1") Integer pageNum,
