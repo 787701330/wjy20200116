@@ -42,4 +42,22 @@ public interface StorageService {
 
 	int setState(Long[] id,int state);
 
+	PageInfo<Storage> selectMusicList(Long userId, String keyword, Long parent, int state, Integer pageNum,
+			Integer pageSize);
+
+	PageInfo<Storage> selectPictureList(Long userId, String keyword, Long parent, int state, Integer pageNum,
+			Integer pageSize);
+
+	PageInfo<Storage> selectDocumentList(Long userId, String keyword, Long parent, int state, Integer pageNum,
+			Integer pageSize);
+
+	PageInfo<Storage> selectVideoList(Long userId, String keyword, Long parent, int state, Integer pageNum,
+			Integer pageSize);
+
+	PageInfo<Storage> selectTorrentList(Long userId, String keyword, Long parent, int state, Integer pageNum,
+			Integer pageSize);
+
+	PageInfo<Storage> selectOtherList(Long userId, String keyword, Long parent, int state, Integer pageNum,
+			Integer pageSize);
+
 }

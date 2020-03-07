@@ -40,12 +40,13 @@
 		<div class="navbar navbar-fixed-top">
 			<div class="container-fluid cl">
 				<a class="logo navbar-logo f-l mr-10 hidden-xs"
-					href="/aboutHui.shtml">H-ui.admin</a> <a
+					>私人空间</a> <a
 					class="logo navbar-logo-m f-l mr-10 visible-xs"
-					href="/aboutHui.shtml">H-ui</a> <span
-					class="logo navbar-slogan f-l mr-10 hidden-xs">v3.1</span> <a
+					></a> <span
+					class="logo navbar-slogan f-l mr-10 hidden-xs">v1.1</span> <a
 					aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs"
 					href="javascript:;">&#xe667;</a>
+				<!-- 
 				<nav class="nav navbar-nav">
 					<ul class="cl">
 						<li class="dropDown dropDown_hover"><a href="javascript:;"
@@ -67,20 +68,23 @@
 							</ul></li>
 					</ul>
 				</nav>
+				 -->
 				<nav id="Hui-userbar"
 					class="nav navbar-nav navbar-userbar hidden-xs">
 					<ul class="cl">
-						<li>${user.username}</li>
 						<li class="dropDown dropDown_hover"><a href="#"
-							class="dropDown_A">admin <i class="Hui-iconfont">&#xe6d5;</i></a>
+							class="dropDown_A">${user.username}<i class="Hui-iconfont">&#xe6d5;</i></a>
 							<ul class="dropDown-menu menu radius box-shadow">
 								<li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
+								<li><a href="javascript:;" onClick="password()">修改密码</a></li>
 								<li><a href="logout.do">切换账户</a></li>
 								<li><a href="logout.do">退出</a></li>
 							</ul></li>
+						<!-- 
 						<li id="Hui-msg"><a href="#" title="消息"><span
 								class="badge badge-danger">1</span><i class="Hui-iconfont"
 								style="font-size: 18px">&#xe68a;</i></a></li>
+						 -->
 						<li id="Hui-skin" class="dropDown right dropDown_hover"><a
 							href="javascript:;" class="dropDown_A" title="换肤"><i
 								class="Hui-iconfont" style="font-size: 18px">&#xe62a;</i></a>
@@ -102,11 +106,26 @@
 		<div class="menu_dropdown bk_2">
 			<dl id="menu-article">
 				<dt class="selected">
-					 <a data-href="/space/spacePage.do"
+					 <a 
 						data-title="私人网盘" href="javascript:void(0)"><i class="Hui-iconfont">&#xe616;</i>私人网盘</a><i
 						class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
 				</dt>
-				
+					<dd>
+					<ul>
+						<li><a data-href="/space/picturePage.do"
+							data-title="图片" href="javascript:;">图片</a></li>
+						<li><a data-href="/space/documentPage.do" data-title="文档"
+							href="javascript:void(0)">文档</a></li>
+						<li><a data-href="/space/videoPage.do" data-title="视频"
+							href="javascript:void(0)">视频</a></li>
+						<li><a data-href="/space/torrentPage.do" data-title="种子"
+							href="javascript:void(0)">种子</a></li>
+						<li><a data-href="/space/musicPage.do" data-title="音乐"
+							href="javascript:void(0)">音乐</a></li>
+						<li><a data-href="/space/otherPage.do" data-title="其他"
+							href="javascript:void(0)">其他</a></li>
+					</ul>
+				</dd>
 			</dl>
 			<dl id="menu-picture">
 				<dt>
@@ -114,22 +133,7 @@
 						data-title="回收站" href="javascript:void(0)"><i class="Hui-iconfont">&#xe609;</i> 回收站</a><i
 						class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
 				</dt>
-								<dd>
-					<ul>
-						<li><a data-href="http://h-ui.duoshuo.com/admin/"
-							data-title="图片" href="javascript:;">图片</a></li>
-						<li><a data-href="feedback-list.html" data-title="文档"
-							href="javascript:void(0)">文档</a></li>
-						<li><a data-href="feedback-list.html" data-title="视频"
-							href="javascript:void(0)">视频</a></li>
-						<li><a data-href="feedback-list.html" data-title="种子"
-							href="javascript:void(0)">种子</a></li>
-						<li><a data-href="feedback-list.html" data-title="音乐"
-							href="javascript:void(0)">音乐</a></li>
-						<li><a data-href="feedback-list.html" data-title="其他"
-							href="javascript:void(0)">其他</a></li>
-					</ul>
-				</dd>
+						
 			</dl>
 			<!-- 
 			<dl id="menu-comments">
@@ -157,7 +161,7 @@
 		<div id="Hui-tabNav" class="Hui-tabNav hidden-xs">
 			<div class="Hui-tabNav-wp">
 				<ul id="min_title_list" class="acrossTab cl">
-					<li class="active"><span title="我的桌面" data-href="welcome.html">我的桌面</span>
+					<li class="active"><span title="私人空间" data-href="/space/spacePage.do">私人空间</span>
 						<em></em></li>
 				</ul>
 			</div>
@@ -253,17 +257,5 @@
 			layer_show(title, url, w, h);
 		}
 	</script>
-
-	<!--此乃百度统计代码，请自行删除-->
-	<script>
-		var _hmt = _hmt || [];
-		(function() {
-			var hm = document.createElement("script");
-			hm.src = "https://hm.baidu.com/hm.js?080836300300be57b7f34f4b3e97d911";
-			var s = document.getElementsByTagName("script")[0];
-			s.parentNode.insertBefore(hm, s);
-		})();
-	</script>
-	<!--/此乃百度统计代码，请自行删除-->
 </body>
 </html>

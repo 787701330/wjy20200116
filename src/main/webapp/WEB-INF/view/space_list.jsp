@@ -270,8 +270,6 @@ function refreshTable(){
 
   
   function folder_add(){
-	  var c='${parent}';
-	  console.log(c);
 	  var a='<tr> <td class="bs-checkbox" style="width:36px"> </td> <td style=""><input type="text" class="input-text col-xs-10 col-sm-10" ><a title="确定" href="javascript:;" onclick="folder_add2(this)" style="text-decoration:none "><i><span class="glyphicon glyphicon-ok" style="top:5px"></span></i></a><a title="取消" href="javascript:;" onclick="refreshTable()" style="text-decoration:none "><i class=""><span style="top:5px" class="glyphicon glyphicon-remove"></span></i></a></td><td></td><td></td><td></td><td></td></tbody>';
 	  $('#spaceTable').append(a);
   }

@@ -1,5 +1,7 @@
 package wjy20200116;
 
+import static org.junit.Assert.*;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,5 +21,10 @@ public class SpaceTest {
 	@Test
 	public void testAddFolder() throws Exception {
 		storageService.addFolder((long)6, "22sssd23",(long)11);
+	}
+	
+	@Test
+	public void testsql() throws Exception {
+		storageService.selectPictureList((long)1, "123", (long)1, 1, 1, 10);
 	}
 }

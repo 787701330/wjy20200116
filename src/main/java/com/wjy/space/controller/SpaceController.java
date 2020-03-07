@@ -43,6 +43,84 @@ public class SpaceController {
 	public String spacePage(Model m) {
 		return "space_list";
 	}
+	
+	@RequestMapping("/musicPage.do")
+	public String musicPage(Model m) {
+		return "music_list";
+	}
+	
+	@RequestMapping("/documentPage.do")
+	public String documentPage(Model m) {
+		return "document_list";
+	}
+	
+	@RequestMapping("/picturePage.do")
+	public String picturePage(Model m) {
+		return "picture_list";
+	}
+	
+	@RequestMapping("/videoPage.do")
+	public String videoPage(Model m) {
+		return "video_list";
+	}
+	
+	@RequestMapping("/torrentPage.do")
+	public String torrentPage(Model m) {
+		return "torrent_list";
+	}
+	
+	@RequestMapping("/otherPage.do")
+	public String otherPage(Model m) {
+		return "other_list";
+	}
+	
+	@RequestMapping("/torrent_list.do")
+	@ResponseBody
+	public PageInfo<Storage> other_list(Long userId, String keyword, @RequestParam(defaultValue = "1") Long parent,
+			@RequestParam(defaultValue = "1") int state, @RequestParam(defaultValue = "1") Integer pageNum,
+			@RequestParam(defaultValue = "10") Integer pageSize) {
+		return storageService.selectOtherList(userId, keyword, parent, state, pageNum, pageSize);
+	}
+	
+	@RequestMapping("/torrent_list.do")
+	@ResponseBody
+	public PageInfo<Storage> torrent_list(Long userId, String keyword, @RequestParam(defaultValue = "1") Long parent,
+			@RequestParam(defaultValue = "1") int state, @RequestParam(defaultValue = "1") Integer pageNum,
+			@RequestParam(defaultValue = "10") Integer pageSize) {
+		return storageService.selectTorrentList(userId, keyword, parent, state, pageNum, pageSize);
+	}
+	
+	@RequestMapping("/music_list.do")
+	@ResponseBody
+	public PageInfo<Storage> music_list(Long userId, String keyword, @RequestParam(defaultValue = "1") Long parent,
+			@RequestParam(defaultValue = "1") int state, @RequestParam(defaultValue = "1") Integer pageNum,
+			@RequestParam(defaultValue = "10") Integer pageSize) {
+		return storageService.selectMusicList(userId, keyword, parent, state, pageNum, pageSize);
+	}
+	
+	@RequestMapping("/video_list.do")
+	@ResponseBody
+	public PageInfo<Storage> video_list(Long userId, String keyword, @RequestParam(defaultValue = "1") Long parent,
+			@RequestParam(defaultValue = "1") int state, @RequestParam(defaultValue = "1") Integer pageNum,
+			@RequestParam(defaultValue = "10") Integer pageSize) {
+		return storageService.selectVideoList(userId, keyword, parent, state, pageNum, pageSize);
+	}
+	
+	@RequestMapping("/document_list.do")
+	@ResponseBody
+	public PageInfo<Storage> document_list(Long userId, String keyword, @RequestParam(defaultValue = "1") Long parent,
+			@RequestParam(defaultValue = "1") int state, @RequestParam(defaultValue = "1") Integer pageNum,
+			@RequestParam(defaultValue = "10") Integer pageSize) {
+		return storageService.selectDocumentList(userId, keyword, parent, state, pageNum, pageSize);
+	}
+	
+	@RequestMapping("/picture_list.do")
+	@ResponseBody
+	public PageInfo<Storage> picture_list(Long userId, String keyword, @RequestParam(defaultValue = "1") Long parent,
+			@RequestParam(defaultValue = "1") int state, @RequestParam(defaultValue = "1") Integer pageNum,
+			@RequestParam(defaultValue = "10") Integer pageSize) {
+		return storageService.selectPictureList(userId, keyword, parent, state, pageNum, pageSize);
+	}
 
 	@RequestMapping("/move.do")
 	public String spaceMove(Model m, Long id) {
