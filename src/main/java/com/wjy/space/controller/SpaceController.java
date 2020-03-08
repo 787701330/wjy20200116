@@ -79,7 +79,7 @@ public class SpaceController {
 	public PageInfo<Storage> other_list(Long userId, String keyword, @RequestParam(defaultValue = "1") Long parent,
 			@RequestParam(defaultValue = "1") int state, @RequestParam(defaultValue = "1") Integer pageNum,
 			@RequestParam(defaultValue = "10") Integer pageSize) {
-		return storageService.selectOtherList(userId, keyword, parent, state, pageNum, pageSize);
+		return storageService.selectOtherList(userId, keyword, state, pageNum, pageSize);
 	}
 	
 	@RequestMapping("/torrent_list.do")
@@ -87,15 +87,15 @@ public class SpaceController {
 	public PageInfo<Storage> torrent_list(Long userId, String keyword, @RequestParam(defaultValue = "1") Long parent,
 			@RequestParam(defaultValue = "1") int state, @RequestParam(defaultValue = "1") Integer pageNum,
 			@RequestParam(defaultValue = "10") Integer pageSize) {
-		return storageService.selectTorrentList(userId, keyword, parent, state, pageNum, pageSize);
+		return storageService.selectTorrentList(userId, keyword, state, pageNum, pageSize);
 	}
 	
 	@RequestMapping("/music_list.do")
 	@ResponseBody
-	public PageInfo<Storage> music_list(Long userId, String keyword, @RequestParam(defaultValue = "1") Long parent,
+	public PageInfo<Storage> music_list(Long userId, String keyword, 
 			@RequestParam(defaultValue = "1") int state, @RequestParam(defaultValue = "1") Integer pageNum,
 			@RequestParam(defaultValue = "10") Integer pageSize) {
-		return storageService.selectMusicList(userId, keyword, parent, state, pageNum, pageSize);
+		return storageService.selectMusicList(userId, keyword, state, pageNum, pageSize);
 	}
 	
 	@RequestMapping("/video_list.do")
@@ -103,7 +103,7 @@ public class SpaceController {
 	public PageInfo<Storage> video_list(Long userId, String keyword, @RequestParam(defaultValue = "1") Long parent,
 			@RequestParam(defaultValue = "1") int state, @RequestParam(defaultValue = "1") Integer pageNum,
 			@RequestParam(defaultValue = "10") Integer pageSize) {
-		return storageService.selectVideoList(userId, keyword, parent, state, pageNum, pageSize);
+		return storageService.selectVideoList(userId, keyword, state, pageNum, pageSize);
 	}
 	
 	@RequestMapping("/document_list.do")
@@ -111,15 +111,15 @@ public class SpaceController {
 	public PageInfo<Storage> document_list(Long userId, String keyword, @RequestParam(defaultValue = "1") Long parent,
 			@RequestParam(defaultValue = "1") int state, @RequestParam(defaultValue = "1") Integer pageNum,
 			@RequestParam(defaultValue = "10") Integer pageSize) {
-		return storageService.selectDocumentList(userId, keyword, parent, state, pageNum, pageSize);
+		return storageService.selectDocumentList(userId, keyword, state, pageNum, pageSize);
 	}
 	
 	@RequestMapping("/picture_list.do")
 	@ResponseBody
-	public PageInfo<Storage> picture_list(Long userId, String keyword, @RequestParam(defaultValue = "1") Long parent,
+	public PageInfo<Storage> picture_list(Long userId, String keyword,
 			@RequestParam(defaultValue = "1") int state, @RequestParam(defaultValue = "1") Integer pageNum,
 			@RequestParam(defaultValue = "10") Integer pageSize) {
-		return storageService.selectPictureList(userId, keyword, parent, state, pageNum, pageSize);
+		return storageService.selectPictureList(userId, keyword, state, pageNum, pageSize);
 	}
 
 	@RequestMapping("/move.do")

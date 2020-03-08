@@ -106,11 +106,11 @@
 		<div class="menu_dropdown bk_2">
 			<dl id="menu-article">
 				<dt class="selected">
-					 <a 
+					 <a data-href="javascript:void(0)" 
 						data-title="私人网盘" href="javascript:void(0)"><i class="Hui-iconfont">&#xe616;</i>私人网盘</a><i
 						class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
 				</dt>
-					<dd>
+					<dd style="display:block;">
 					<ul>
 						<li><a data-href="/space/picturePage.do"
 							data-title="图片" href="javascript:;">图片</a></li>
@@ -175,7 +175,7 @@
 		<div id="iframe_box" class="Hui-article">
 			<div class="show_iframe">
 				<div style="display: none" class="loading"></div>
-				<iframe scrolling="yes" frameborder="0" src="welcome.html"></iframe>
+				<iframe scrolling="yes" frameborder="0" src="/space/spacePage.do"></iframe>
 			</div>
 		</div>
 	</section>

@@ -32,7 +32,7 @@
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 私人空间 <span class="c-gray en">&gt;</span> 存储列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
 	
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick='space_add("上传文件","space/space_add.do","800","500")' class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 上传文件</a>  <a href="javascript:;" onclick="folder_add()" class="btn btn-info radius"><i class="Hui-iconfont">&#xe63e;</i>  新建文件夹</a></span> </div>
+	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick='space_add("上传文件","/space/space_add.do","800","500")' class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 上传文件</a>  <a href="javascript:;" onclick="folder_add()" class="btn btn-info radius"><i class="Hui-iconfont">&#xe63e;</i>  新建文件夹</a></span> </div>
 	<table id="spaceTable" class="table table-border table-bordered table-bg">
 	</table>
 </div> 

@@ -1,9 +1,9 @@
 <ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="../config/ehcache.xsd">
 	<!--diskStore：缓存数据持久化的目录 地址  -->
-	<diskStore path="/media/wujunya/1decb1b3-c71c-4488-9fb5-2c76d0f76c96/develop/ehcache" />
+	<diskStore path="/root/wujunya/ehcache" />
 	<defaultCache 
-		maxElementsInMemory="1000" s
+		maxElementsInMemory="1000" 
 		maxElementsOnDisk="10000000"
 		eternal="false" 
 		overflowToDisk="false" 

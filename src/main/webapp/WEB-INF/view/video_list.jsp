@@ -258,8 +258,7 @@ function refreshTable(){
 				  pageNum:params.offset/params.limit+1,
 				  pageSize:params.limit,
 				  keyword:params.search,
-				  userId:'${user.id}',
-				  parent:id
+				  userId:'${user.id}'
 			  };
 		  },  
 	  });

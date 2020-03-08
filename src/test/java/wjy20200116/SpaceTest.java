@@ -25,6 +25,6 @@ public class SpaceTest {
 	
 	@Test
 	public void testsql() throws Exception {
-		storageService.selectPictureList((long)1, "123", (long)1, 1, 1, 10);
+		storageService.selectOtherList((long)1, "", 1, 1, 10);
 	}
 }

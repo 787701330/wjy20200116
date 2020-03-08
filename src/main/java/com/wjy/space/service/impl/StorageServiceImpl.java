@@ -245,7 +245,7 @@ public class StorageServiceImpl implements StorageService {
 				if (result == 0) {
 					return 0;
 				}
-			}else {
+			} else {
 				String adress = storage.getAdress();
 				int r1 = FastDfsUtil.fdfsDeleteFile1(adress);
 				if (r1 != 0) {
@@ -272,7 +272,7 @@ public class StorageServiceImpl implements StorageService {
 					return 0;
 				}
 
-			}else {
+			} else {
 				String adress = s.getAdress();
 				int r = FastDfsUtil.fdfsDeleteFile1(adress);
 				if (r != 0) {
@@ -293,12 +293,12 @@ public class StorageServiceImpl implements StorageService {
 		Criteria criteria = example.createCriteria();
 		criteria.andStateEqualTo(2);
 		List<Storage> list = storageMapper.selectByExample(example);
-		Date date=new Date();
+		Date date = new Date();
 		try {
-			for(Storage s:list) {
+			for (Storage s : list) {
 				Date date2 = s.getUpdated();
-				int day=(int) ((date.getTime()-date2.getTime())/(1000*60*60*24));
-				if(day>15) {
+				int day = (int) ((date.getTime() - date2.getTime()) / (1000 * 60 * 60 * 24));
+				if (day > 15) {
 					String adress = s.getAdress();
 					FastDfsUtil.fdfsDeleteFile1(adress);
 					storageMapper.deleteByPrimaryKey(s.getId());
@@ -311,166 +311,95 @@ public class StorageServiceImpl implements StorageService {
 	}
 
 	@Override
-	public PageInfo<Storage> selectMusicList(Long userId, String keyword, Long parent, int state, Integer pageNum,
+	public PageInfo<Storage> selectMusicList(Long userId, String keyword, int state, Integer pageNum,
 			Integer pageSize) {
-		
-		StorageExample example = new StorageExample();
-		Criteria criteria = example.createCriteria();
-		criteria.andUserIdEqualTo(userId);
-		criteria.andStateEqualTo(state);
-		criteria.andParentEqualTo(parent);
-		criteria.andNameLike("%[.mp3|.mid|.vqf|.amr|.wma]%");
-		if (StringUtils.isNotBlank(keyword)) {
-			criteria.andNameLike("%" + keyword + "%");
-		}
-		PageHelper.startPage(pageNum, pageSize);
-		List<Storage> list = storageMapper.selectByExample(example);
-		if (parent != 1) {
-			Storage storage = new Storage();
-			storage.setName("...");
-			Storage storage2 = this.selectByPrimaryKey(parent);
-			Long parent2 = storage2.getParent();
-			storage.setId(parent2);
-			storage.setIsFolder(1);
-			list.add(0, storage);
-		}
-		PageInfo<Storage> pageInfo = new PageInfo<>(list);
-		return pageInfo;
-	}
 
-	@Override
-	public PageInfo<Storage> selectPictureList(Long userId, String keyword, Long parent, int state, Integer pageNum,
-			Integer pageSize) {
-		
-		StorageExample example = new StorageExample();
-		Criteria criteria = example.createCriteria();
-		criteria.andUserIdEqualTo(userId);
-		criteria.andStateEqualTo(state);
-		criteria.andParentEqualTo(parent);
-		criteria.andNameLike("%[.jpg|.png|.gif|.bmp|.jpeg]%");
-		if (StringUtils.isNotBlank(keyword)) {
-			criteria.andNameLike("%" + keyword + "%");
-		}
-		PageHelper.startPage(pageNum, pageSize);
-		List<Storage> list = storageMapper.selectByExample(example);
-		if (parent != 1) {
-			Storage storage = new Storage();
-			storage.setName("...");
-			Storage storage2 = this.selectByPrimaryKey(parent);
-			Long parent2 = storage2.getParent();
-			storage.setId(parent2);
-			storage.setIsFolder(1);
-			list.add(0, storage);
-		}
-		PageInfo<Storage> pageInfo = new PageInfo<>(list);
-		return pageInfo;
-	}
-
-	@Override
-	public PageInfo<Storage> selectDocumentList(Long userId, String keyword, Long parent, int state, Integer pageNum,
-			Integer pageSize) {
-		StorageExample example = new StorageExample();
-		Criteria criteria = example.createCriteria();
-		criteria.andUserIdEqualTo(userId);
-		criteria.andStateEqualTo(state);
-		criteria.andParentEqualTo(parent);
-		criteria.andNameLike("%[.txt|.pdf|.html|.doc]%");
-		if (StringUtils.isNotBlank(keyword)) {
-			criteria.andNameLike("%" + keyword + "%");
-		}
-		PageHelper.startPage(pageNum, pageSize);
-		List<Storage> list = storageMapper.selectByExample(example);
-		if (parent != 1) {
-			Storage storage = new Storage();
-			storage.setName("...");
-			Storage storage2 = this.selectByPrimaryKey(parent);
-			Long parent2 = storage2.getParent();
-			storage.setId(parent2);
-			storage.setIsFolder(1);
-			list.add(0, storage);
-		}
-		PageInfo<Storage> pageInfo = new PageInfo<>(list);
-		return pageInfo;
-	}
-
-	@Override
-	public PageInfo<Storage> selectVideoList(Long userId, String keyword, Long parent, int state, Integer pageNum,
-			Integer pageSize) {
-		StorageExample example = new StorageExample();
-		Criteria criteria = example.createCriteria();
-		criteria.andUserIdEqualTo(userId);
-		criteria.andStateEqualTo(state);
-		criteria.andParentEqualTo(parent);
-		criteria.andNameLike("%[.avi|.wmv|.mpg|.mov|.rm|.ram|.swf|.flv|.mp4]%");
-		if (StringUtils.isNotBlank(keyword)) {
-			criteria.andNameLike("%" + keyword + "%");
-		}
-		PageHelper.startPage(pageNum, pageSize);
-		List<Storage> list = storageMapper.selectByExample(example);
-		if (parent != 1) {
-			Storage storage = new Storage();
-			storage.setName("...");
-			Storage storage2 = this.selectByPrimaryKey(parent);
-			Long parent2 = storage2.getParent();
-			storage.setId(parent2);
-			storage.setIsFolder(1);
-			list.add(0, storage);
-		}
-		PageInfo<Storage> pageInfo = new PageInfo<>(list);
-		return pageInfo;
-	}
-
-	@Override
-	public PageInfo<Storage> selectTorrentList(Long userId, String keyword, Long parent, int state, Integer pageNum,
-			Integer pageSize) {
-		StorageExample example = new StorageExample();
-		Criteria criteria = example.createCriteria();
-		criteria.andUserIdEqualTo(userId);
-		criteria.andStateEqualTo(state);
-		criteria.andParentEqualTo(parent);
-		criteria.andNameLike("%.torrent%");
-		if (StringUtils.isNotBlank(keyword)) {
-			criteria.andNameLike("%" + keyword + "%");
-		}
-		PageHelper.startPage(pageNum, pageSize);
-		List<Storage> list = storageMapper.selectByExample(example);
-		if (parent != 1) {
-			Storage storage = new Storage();
-			storage.setName("...");
-			Storage storage2 = this.selectByPrimaryKey(parent);
-			Long parent2 = storage2.getParent();
-			storage.setId(parent2);
-			storage.setIsFolder(1);
-			list.add(0, storage);
-		}
-		PageInfo<Storage> pageInfo = new PageInfo<>(list);
-		return pageInfo;
-	}
-
-	@Override
-	public PageInfo<Storage> selectOtherList(Long userId, String keyword, Long parent, int state, Integer pageNum,
-			Integer pageSize) {
-	StorageExample example = new StorageExample();
-	Criteria criteria = example.createCriteria();
-	criteria.andUserIdEqualTo(userId);
-	criteria.andStateEqualTo(state);
-	criteria.andParentEqualTo(parent);
-	criteria.andNameNotLike("%[.torrent|.avi|.wmv|.mpg|.mov|.rm|.ram|.swf|.flv|.mp4|.txt|.pdf|.html|.doc|.jpg|.png|.gif|.bmp|.jpeg|.mp3|.mid|.vqf|.amr|.wma]%");
-	if (StringUtils.isNotBlank(keyword)) {
-		criteria.andNameLike("%" + keyword + "%");
-	}
-	PageHelper.startPage(pageNum, pageSize);
-	List<Storage> list = storageMapper.selectByExample(example);
-	if (parent != 1) {
 		Storage storage = new Storage();
-		storage.setName("...");
-		Storage storage2 = this.selectByPrimaryKey(parent);
-		Long parent2 = storage2.getParent();
-		storage.setId(parent2);
-		storage.setIsFolder(1);
-		list.add(0, storage);
+		storage.setState(state);
+		storage.setUserId(userId);
+		if (StringUtils.isNotBlank(keyword)) {
+			storage.setName(keyword);
+		}
+		PageHelper.startPage(pageNum, pageSize);
+		List<Storage> list = storageMapper.selectMusicList(storage);
+		PageInfo<Storage> pageInfo = new PageInfo<>(list);
+		return pageInfo;
 	}
-	PageInfo<Storage> pageInfo = new PageInfo<>(list);
-	return pageInfo;
+
+	@Override
+	public PageInfo<Storage> selectPictureList(Long userId, String keyword, int state, Integer pageNum,
+			Integer pageSize) {
+		Storage storage = new Storage();
+		storage.setState(state);
+		storage.setUserId(userId);
+		if (StringUtils.isNotBlank(keyword)) {
+			storage.setName(keyword);
+		}
+		PageHelper.startPage(pageNum, pageSize);
+		List<Storage> list = storageMapper.selectPictureList(storage);
+		PageInfo<Storage> pageInfo = new PageInfo<>(list);
+		return pageInfo;
+	}
+
+	@Override
+	public PageInfo<Storage> selectDocumentList(Long userId, String keyword, int state, Integer pageNum,
+			Integer pageSize) {
+		Storage storage = new Storage();
+		storage.setState(state);
+		storage.setUserId(userId);
+		if (StringUtils.isNotBlank(keyword)) {
+			storage.setName(keyword);
+		}
+		PageHelper.startPage(pageNum, pageSize);
+		List<Storage> list = storageMapper.selectDocumentList(storage);
+		PageInfo<Storage> pageInfo = new PageInfo<>(list);
+		return pageInfo;
+	}
+
+	@Override
+	public PageInfo<Storage> selectVideoList(Long userId, String keyword, int state, Integer pageNum,
+			Integer pageSize) {
+		Storage storage = new Storage();
+		storage.setState(state);
+		storage.setUserId(userId);
+		if (StringUtils.isNotBlank(keyword)) {
+			storage.setName(keyword);
+		}
+
+		PageHelper.startPage(pageNum, pageSize);
+		List<Storage> list = storageMapper.selectVideoList(storage);
+		PageInfo<Storage> pageInfo = new PageInfo<>(list);
+		return pageInfo;
+	}
+
+	@Override
+	public PageInfo<Storage> selectTorrentList(Long userId, String keyword, int state, Integer pageNum,
+			Integer pageSize) {
+		Storage storage = new Storage();
+		storage.setState(state);
+		storage.setUserId(userId);
+		if (StringUtils.isNotBlank(keyword)) {
+			storage.setName(keyword);
+		}
+		PageHelper.startPage(pageNum, pageSize);
+		List<Storage> list = storageMapper.selectTorrentList(storage);
+		PageInfo<Storage> pageInfo = new PageInfo<>(list);
+		return pageInfo;
+	}
+
+	@Override
+	public PageInfo<Storage> selectOtherList(Long userId, String keyword, int state, Integer pageNum,
+			Integer pageSize) {
+		Storage storage = new Storage();
+		storage.setState(state);
+		storage.setUserId(userId);
+		if (StringUtils.isNotBlank(keyword)) {
+			storage.setName(keyword);
+		}
+		
+		PageHelper.startPage(pageNum, pageSize);
+		List<Storage> list = storageMapper.selectOtherList(storage);
+		PageInfo<Storage> pageInfo = new PageInfo<>(list);
+		return pageInfo;
 	}
 }

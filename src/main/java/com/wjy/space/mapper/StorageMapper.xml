@@ -80,6 +80,78 @@
       order by ${orderByClause}
     </if>
   </select>
+  <select id="selectMusicList" parameterType="com.wjy.space.pojo.Storage" resultMap="BaseResultMap">
+    select * from t_storage
+    <include refid="selectMusic_sql"/>
+  </select>
+  <select id="selectTorrentList" parameterType="com.wjy.space.pojo.Storage" resultMap="BaseResultMap">
+    select * from t_storage
+    <include refid="selectTorrent_sql"/>
+  </select>
+  <select id="selectPictureList" parameterType="com.wjy.space.pojo.Storage" resultMap="BaseResultMap">
+    select * from t_storage
+    <include refid="selectPicture_sql"/>
+  </select>
+  <select id="selectDocumentList" parameterType="com.wjy.space.pojo.Storage" resultMap="BaseResultMap">
+    select * from t_storage
+    <include refid="selectDocument_sql"/>
+  </select>
+  <select id="selectVideoList" parameterType="com.wjy.space.pojo.Storage" resultMap="BaseResultMap">
+    select * from t_storage
+    <include refid="selectVideo_sql"/>
+  </select>
+  <select id="selectOtherList" parameterType="com.wjy.space.pojo.Storage" resultMap="BaseResultMap">
+    select * from t_storage
+    <include refid="selectOther_sql"/>
+  </select>
+  <sql id="selectMusic_sql">
+    <trim prefix="WHERE" prefixOverrides="AND|OR">
+      <if test="name!=null">
+        name like concat('%',#{name},'%')
+      </if>
+        and user_id = #{userId} and state = #{state} and name regexp '.mp3|.mid|.vqf|.amr|.wma' 
+    </trim>
+  </sql>
+  <sql id="selectPicture_sql">
+      <trim prefix="WHERE" prefixOverrides="AND|OR">
+      <if test="name!=null">
+        name like concat('%',#{name},'%')
+      </if>
+        and user_id = #{userId} and state = #{state} and name regexp '.jpg|.png|.gif|.bmp|.jpeg' 
+    </trim>
+  </sql>
+  <sql id="selectVideo_sql">
+      <trim prefix="WHERE" prefixOverrides="AND|OR">
+      <if test="name!=null">
+        name like concat('%',#{name},'%')
+      </if>
+        and user_id = #{userId} and state = #{state} and name regexp '.avi|.wmv|.mpg|.mov|.rm|.ram|.swf|.flv|.mp4' 
+    </trim>
+  </sql>
+  <sql id="selectDocument_sql">
+      <trim prefix="WHERE" prefixOverrides="AND|OR">
+      <if test="name!=null">
+        name like concat('%',#{name},'%')
+      </if>
+        and user_id = #{userId} and state = #{state} and name regexp '.txt|.pdf|.html|.doc' 
+    </trim>
+  </sql>
+  <sql id="selectTorrent_sql">
+      <trim prefix="WHERE" prefixOverrides="AND|OR">
+      <if test="name!=null">
+        name like concat('%',#{name},'%')
+      </if>
+        and user_id = #{userId} and state = #{state} and name regexp '.torrent' 
+    </trim>
+  </sql>
+  <sql id="selectOther_sql">
+      <trim prefix="WHERE" prefixOverrides="AND|OR">
+      <if test="name!=null">
+        name like concat('%',#{name},'%')
+      </if>
+        and user_id = #{userId} and state = #{state} and name not regexp '.torrent|.avi|.wmv|.mpg|.mov|.rm|.ram|.swf|.flv|.mp4|.txt|.pdf|.html|.doc|.jpg|.png|.gif|.bmp|.jpeg|.mp3|.mid|.vqf|.amr|.wma' 
+    </trim>
+  </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
     select 
     <include refid="Base_Column_List" />
