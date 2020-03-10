@@ -1,5 +1,9 @@
 package wjy20200116;
 
+import static org.junit.Assert.*;
+
+import java.util.UUID;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -18,5 +22,11 @@ public class UtilTest {
 		user.setPhone("");
 		User object = (User) EmptyStringToNullUtil.EmptyStringToNull(user);
 		System.out.println(user.getPhone());
+	}
+	
+	@Test
+	public void testRondomNumber() throws Exception {
+		String string = UUID.randomUUID().toString();
+		System.out.println(string);
 	}
 }

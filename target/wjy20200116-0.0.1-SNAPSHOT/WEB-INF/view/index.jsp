@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -39,10 +39,8 @@
 	<header class="navbar-wrapper">
 		<div class="navbar navbar-fixed-top">
 			<div class="container-fluid cl">
-				<a class="logo navbar-logo f-l mr-10 hidden-xs"
-					>私人空间</a> <a
-					class="logo navbar-logo-m f-l mr-10 visible-xs"
-					></a> <span
+				<a class="logo navbar-logo f-l mr-10 hidden-xs">私人空间</a> <a
+					class="logo navbar-logo-m f-l mr-10 visible-xs"></a> <span
 					class="logo navbar-slogan f-l mr-10 hidden-xs">v1.1</span> <a
 					aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs"
 					href="javascript:;">&#xe667;</a>
@@ -76,7 +74,7 @@
 							class="dropDown_A">${user.username}<i class="Hui-iconfont">&#xe6d5;</i></a>
 							<ul class="dropDown-menu menu radius box-shadow">
 								<li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
-								<li><a href="javascript:;" onClick="password()">修改密码</a></li>
+								<li><a href="javascript:;" onClick="updatePassword()">修改密码</a></li>
 								<li><a href="logout.do">切换账户</a></li>
 								<li><a href="logout.do">退出</a></li>
 							</ul></li>
@@ -106,14 +104,13 @@
 		<div class="menu_dropdown bk_2">
 			<dl id="menu-article">
 				<dt class="selected">
-					 <a data-href="javascript:void(0)" 
-						data-title="私人网盘" href="javascript:void(0)"><i class="Hui-iconfont">&#xe616;</i>私人网盘</a><i
+					<i class="Hui-iconfont">&#xe616;</i>私人网盘<i
 						class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
 				</dt>
-					<dd style="display:block;">
+				<dd style="display: block;">
 					<ul>
-						<li><a data-href="/space/picturePage.do"
-							data-title="图片" href="javascript:;">图片</a></li>
+						<li><a data-href="/space/picturePage.do" data-title="图片"
+							href="javascript:;">图片</a></li>
 						<li><a data-href="/space/documentPage.do" data-title="文档"
 							href="javascript:void(0)">文档</a></li>
 						<li><a data-href="/space/videoPage.do" data-title="视频"
@@ -129,11 +126,11 @@
 			</dl>
 			<dl id="menu-picture">
 				<dt>
-					<a data-href="/recycleBin/recycleBinPage.do"
-						data-title="回收站" href="javascript:void(0)"><i class="Hui-iconfont">&#xe609;</i> 回收站</a><i
-						class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
+					<a data-href="/recycleBin/recycleBinPage.do" data-title="回收站"
+						href="javascript:void(0)"><i class="Hui-iconfont">&#xe609;</i>
+						回收站</a><i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
 				</dt>
-						
+
 			</dl>
 			<!-- 
 			<dl id="menu-comments">
@@ -161,8 +158,8 @@
 		<div id="Hui-tabNav" class="Hui-tabNav hidden-xs">
 			<div class="Hui-tabNav-wp">
 				<ul id="min_title_list" class="acrossTab cl">
-					<li class="active"><span title="私人空间" data-href="/space/spacePage.do">私人空间</span>
-						<em></em></li>
+					<li class="active"><span title="私人空间"
+						data-href="/space/spacePage.do">私人空间</span> <em></em></li>
 				</ul>
 			</div>
 			<div class="Hui-tabNav-more btn-group">
@@ -187,7 +184,8 @@
 		</ul>
 	</div>
 	<!--_footer 作为公共模版分离出去-->
-	<script type="text/javascript" src="lib/jquery-1.11.3/jquery-1.11.3/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="lib/jquery-1.11.3/jquery-1.11.3/jquery.min.js"></script>
 	<script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
 	<script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script>
 	<script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"></script>
@@ -212,6 +210,9 @@
 				}
 			});*/
 		});
+		function updatePassword(){
+			layer.open({type:1,content:'/user/updatePassword.do',title:'修改密码'})
+		}
 		/*个人信息*/
 		function myselfinfo() {
 			layer.open({
@@ -221,7 +222,7 @@
 				maxmin : true,
 				shade : 0.4,
 				title : '查看信息',
-				content : '<div>管理员信息</div>'
+				content : '/user/personalInfomation.do'
 			});
 		}
 

@@ -19,34 +19,83 @@ import com.wjy.space.util.EmptyStringToNullUtil;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-	
+
 	@Autowired
 	private UserService userService;
 
 	@RequestMapping("/addUser.do")
 	public String addUser() {
-		System.out.println(25);
 		return "user_add";
 	}
+
+	@RequestMapping("/updatePassword.do")
+	public String updatePassword() {
+		return "updatePassword";
+	}
 	
+	@RequestMapping("/personalInfomation.do")
+	public String personalInfomation() {
+		return "personalInfomation";
+	}
+
+	@ResponseBody
+	@RequestMapping("/updatePassword2.do")
+	public MessageObject updatePassword2(Long userId, String password, String newPassword) {
+		MessageObject mo = null;
+		UserExample example = new UserExample();
+		Criteria criteria = example.createCriteria();
+		criteria.andIdEqualTo(userId);
+		criteria.andPasswordEqualTo(password);
+		List<User> list = userService.selectByExample(example);
+		if (list.size() > 0) {
+			User user = new User();
+			user.setId(userId);
+			user.setPassword(newPassword);
+			int result = userService.updatePassword(user);
+			if (result == 0) {
+				mo = new MessageObject(0, "修改密码失败！");
+			} else {
+				mo = new MessageObject(1, "修改密码成功！");
+			}
+		} else {
+			mo = new MessageObject(0, "修改密码失败！");
+		}
+		return mo;
+	}
+
+	@RequestMapping("/testPassword.do")
+	@ResponseBody
+	public String testPassword(@Param("password") String password, Long userId) {
+		UserExample example = new UserExample();
+		Criteria criteria = example.createCriteria();
+		criteria.andIdEqualTo(userId);
+		criteria.andPasswordEqualTo(password);
+		List<User> list = userService.selectByExample(example);
+		if (list.size() > 0) {
+			return "true";
+		} else {
+			return "false";
+		}
+	}
+
 	@RequestMapping("/testUsername.do")
 	@ResponseBody
-	public String testUsername(@Param("username")String username) {
-		UserExample example=new UserExample();
+	public String testUsername(@Param("username") String username) {
+		UserExample example = new UserExample();
 		Criteria criteria = example.createCriteria();
 		criteria.andUsernameEqualTo(username.trim());
 		List<User> list = userService.selectByExample(example);
-		if(list.size()>0) {
+		if (list.size() > 0) {
 			return "false";
-		}else {
+		} else {
 			return "true";
 		}
 	}
-	
+
 	@RequestMapping("/add.do")
 	@ResponseBody
 	public MessageObject add(User user) {
-		user= (User) EmptyStringToNullUtil.EmptyStringToNull(user);
+		user = (User) EmptyStringToNullUtil.EmptyStringToNull(user);
 		user.setCreated(new Date());
 		user.setUpdated(user.getCreated());
 		int delete = userService.insert(user);

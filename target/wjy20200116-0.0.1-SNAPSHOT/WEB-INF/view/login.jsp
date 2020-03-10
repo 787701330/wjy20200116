@@ -86,6 +86,7 @@
 		</div>
 	</div>
 	<div class="footer">wjy</div>
+	<div class="footer"><a href="http://beian.miit.gov.cn">浙ICP备20006719号</a></div>
 	<script type="text/javascript"
 		src="lib/jquery-1.11.3/jquery-1.11.3/jquery.min.js"></script>
 	<script type="text/javascript" src="lib/layer/2.4/layer.js"></script>

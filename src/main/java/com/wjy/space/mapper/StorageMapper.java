@@ -25,15 +25,15 @@ public interface StorageMapper {
 
     int updateByPrimaryKey(Storage record);
     
-    List<Storage> selectMusicList(Storage storage);
+    List<Storage> selectOtherList(Storage storage);
+    
+    List<Storage> selectVideoList(Storage storage);
+    
+    List<Storage> selectDocumentList(Storage storage);
     
     List<Storage> selectPictureList(Storage storage);
-
-	List<Storage> selectDocumentList(Storage storage);
-
-	List<Storage> selectVideoList(Storage storage);
-
-	List<Storage> selectTorrentList(Storage storage);
-
-	List<Storage> selectOtherList(Storage storage);
+    
+    List<Storage> selectTorrentList(Storage storage);
+    
+    List<Storage> selectMusicList(Storage storage);
 }

@@ -4,10 +4,10 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class User implements Serializable{
-
+	
 	private static final long serialVersionUID = -3470601700501432685L;
-
-	private Long id;
+	
+    private Long id;
 
     private String username;
 
@@ -30,6 +30,8 @@ public class User implements Serializable{
     private String realname;
 
     private String idNumber;
+
+    private Integer gender;
 
     public Long getId() {
         return id;
@@ -126,4 +128,18 @@ public class User implements Serializable{
     public void setIdNumber(String idNumber) {
         this.idNumber = idNumber;
     }
+
+    public Integer getGender() {
+        return gender;
+    }
+
+    public void setGender(Integer gender) {
+        this.gender = gender;
+    }
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+    
+    
 }

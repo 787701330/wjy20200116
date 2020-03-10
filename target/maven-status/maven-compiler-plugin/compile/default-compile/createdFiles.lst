@@ -19,6 +19,7 @@ com/wjy/space/util/EmptyStringToNullUtil.class
 com/wjy/space/pojo/Storage.class
 com/wjy/space/pojo/UserExample$Criterion.class
 com/wjy/space/pojo/Role.class
+com/wjy/space/util/TimeUtil.class
 com/wjy/space/mo/MessageObject.class
 com/wjy/space/util/FastDfsUtil.class
 com/wjy/space/pojo/PermissionExample.class

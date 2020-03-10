@@ -44,42 +44,6 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Base_Column_List">
-    id, name, user_id, created, updated, size, state, parent, is_folder
-  </sql>
-  <sql id="Blob_Column_List">
-    adress
-  </sql>
-  <select id="selectByExampleWithBLOBs" parameterType="com.wjy.space.pojo.StorageExample" resultMap="ResultMapWithBLOBs">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from t_storage
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
-  <select id="selectByExample" parameterType="com.wjy.space.pojo.StorageExample" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from t_storage
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
   <select id="selectMusicList" parameterType="com.wjy.space.pojo.Storage" resultMap="BaseResultMap">
     select * from t_storage
     <include refid="selectMusic_sql"/>
@@ -152,6 +116,42 @@
         and user_id = #{userId} and state = #{state} and name not regexp '.torrent|.avi|.wmv|.mpg|.mov|.rm|.ram|.swf|.flv|.mp4|.txt|.pdf|.html|.doc|.jpg|.png|.gif|.bmp|.jpeg|.mp3|.mid|.vqf|.amr|.wma' 
     </trim>
   </sql>
+  <sql id="Base_Column_List">
+    id, name, user_id, created, updated, size, state, parent, is_folder
+  </sql>
+  <sql id="Blob_Column_List">
+    adress
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.wjy.space.pojo.StorageExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_storage
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.wjy.space.pojo.StorageExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_storage
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
     select 
     <include refid="Base_Column_List" />

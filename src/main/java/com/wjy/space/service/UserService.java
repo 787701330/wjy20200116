@@ -11,4 +11,6 @@ public interface UserService {
 	public int insert(User user);
 	
 	public List<User> selectByExample(UserExample example);
+
+	int updatePassword(User user);
 }

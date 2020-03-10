@@ -23,10 +23,12 @@ public class UserServiceImpl implements UserService {
 	
 	
 	public List<User> selectByExample(UserExample example) {
-		System.out.println(85);
-		System.out.println(userMapper);
 		return userMapper.selectByExample(example);
 	}
 	
+	@Override
+	public int updatePassword(User user) {
+		return userMapper.updateByPrimaryKeySelective(user);
+	}
 
 }

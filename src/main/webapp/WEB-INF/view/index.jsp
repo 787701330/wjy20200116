@@ -74,7 +74,7 @@
 							class="dropDown_A">${user.username}<i class="Hui-iconfont">&#xe6d5;</i></a>
 							<ul class="dropDown-menu menu radius box-shadow">
 								<li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
-								<li><a href="javascript:;" onClick="password()">修改密码</a></li>
+								<li><a href="javascript:;" onClick="updatePassword()">修改密码</a></li>
 								<li><a href="logout.do">切换账户</a></li>
 								<li><a href="logout.do">退出</a></li>
 							</ul></li>
@@ -210,6 +210,9 @@
 				}
 			});*/
 		});
+		function updatePassword(){
+			layer.open({type:1,content:'/user/updatePassword.do',title:'修改密码'})
+		}
 		/*个人信息*/
 		function myselfinfo() {
 			layer.open({
@@ -219,7 +222,7 @@
 				maxmin : true,
 				shade : 0.4,
 				title : '查看信息',
-				content : '<div>管理员信息</div>'
+				content : '/user/personalInfomation.do'
 			});
 		}
 

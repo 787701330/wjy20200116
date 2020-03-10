@@ -77,6 +77,7 @@ public class StorageServiceImpl implements StorageService {
 	public Storage selectByPrimaryKey(Long id) {
 		return storageMapper.selectByPrimaryKey(id);
 	}
+	
 
 	@Override
 	public int updateByPrimaryKeySelective(Storage storage) {

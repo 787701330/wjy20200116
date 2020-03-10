@@ -35,7 +35,7 @@
 <![endif]-->
 <!--/meta 作为公共模版分离出去-->
 
-<title>文件上传</title>
+<title>文件操作</title>
 <meta name="keywords"
 	content="H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
 <meta name="description"
