@@ -5,9 +5,10 @@ import java.util.Date;
 
 public class User implements Serializable{
 	
-	private static final long serialVersionUID = -3470601700501432685L;
-	
-    private Long id;
+
+	private static final long serialVersionUID = -3956455493243665683L;
+
+	private Long id;
 
     private String username;
 
@@ -137,9 +138,6 @@ public class User implements Serializable{
         this.gender = gender;
     }
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
     
     
 }

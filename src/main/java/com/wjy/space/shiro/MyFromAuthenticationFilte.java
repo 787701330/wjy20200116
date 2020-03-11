@@ -20,7 +20,6 @@ public class MyFromAuthenticationFilte extends FormAuthenticationFilter{
 		HttpServletRequest req=(HttpServletRequest) request;
 		String verifyCode=request.getParameter("verifyCode");
 		String randCode=(String) req.getSession().getAttribute("rand");
-		System.out.println("rand");
 		if(StringUtils.isNotBlank(verifyCode)&&StringUtils.isNotBlank(randCode)) {
 			verifyCode=verifyCode.toLowerCase();
 			randCode=randCode.toLowerCase();

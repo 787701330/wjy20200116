@@ -79,8 +79,8 @@
 			<div class="row cl">
 				<label class="form-label col-xs-4 col-sm-2"> 性别：</label>
 				<div class="formControls col-xs-8 col-sm-9">
-					<input type="checkbox"  name="gender" value="1" class="input-checkbox">男
-					<input type="checkbox"  name="gender" value="2" class="input-checkbox">女
+					<input type="radio"  name="gender" value="1" class="input-checkbox">男
+					<input type="radio"  name="gender" value="2" class="input-checkbox">女
 				</div>
 			</div>
 			<div class="row cl">

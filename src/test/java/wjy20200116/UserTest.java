@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.wjy.space.controller.UserController;
 import com.wjy.space.pojo.User;
 import com.wjy.space.service.UserService;
 import com.wjy.space.util.FastDfsUtil;
@@ -20,6 +21,8 @@ public class UserTest {
 	@Autowired
 	private UserService userService;
 	
+	@Autowired
+	private UserController userController;
 	
 	@Test
 	public void testSalt() throws Exception {
@@ -30,14 +33,12 @@ public class UserTest {
 	@Test
 	public void testUser() throws Exception {
 		User user=new User();
-		user.setUsername("root34");
-		user.setPassword("7410adb249055d9b0b2c048379055849");
-		user.setRoleId((long) 1);
-		user.setState("1");
-		user.setSalt("1");
-		user.setCreated(new Date());
-		user.setUpdated(new Date());
-		userService.insert(user);
+		user.setUsername("1111112");
+		user.setPassword("111111");
+		user.setPhone("");
+		user.setEmail("");
+		user.setRealname("");
+		userController.add(user);
 	}
 	
 	@Test

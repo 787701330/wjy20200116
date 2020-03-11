@@ -2,6 +2,7 @@ package com.wjy.space.service;
 
 import java.util.List;
 
+
 import com.wjy.space.pojo.User;
 import com.wjy.space.pojo.UserExample;
 
@@ -13,4 +14,8 @@ public interface UserService {
 	public List<User> selectByExample(UserExample example);
 
 	int updatePassword(User user);
+	
+	User selectByPrimaryKey(Long id);
+	
+	int updateByPrimaryKeySelective(User user);
 }

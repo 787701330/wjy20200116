@@ -3,7 +3,10 @@ package com.wjy.space.controller;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.ibatis.annotations.Param;
+import org.apache.shiro.crypto.hash.SimpleHash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +18,7 @@ import com.wjy.space.pojo.UserExample;
 import com.wjy.space.pojo.UserExample.Criteria;
 import com.wjy.space.service.UserService;
 import com.wjy.space.util.EmptyStringToNullUtil;
+import com.wjy.space.util.SaltUtil;
 
 @Controller
 @RequestMapping("/user")
@@ -38,20 +42,32 @@ public class UserController {
 		return "personalInfomation";
 	}
 
+	@RequestMapping("/updateInfomation.do")
+	public MessageObject updateInfomation(User user,HttpServletRequest request) {
+		MessageObject mo = null;
+		int i=userService.updateByPrimaryKeySelective(user);
+		User user2 = userService.selectByPrimaryKey(user.getId());
+		request.getSession().setAttribute("user", user2);
+		if (i == 0) {
+			mo = new MessageObject(0, "修改失败！");
+		} else {
+			mo = new MessageObject(1, "修改成功！");
+		}
+		return mo;
+	}
+	
 	@ResponseBody
 	@RequestMapping("/updatePassword2.do")
 	public MessageObject updatePassword2(Long userId, String password, String newPassword) {
 		MessageObject mo = null;
-		UserExample example = new UserExample();
-		Criteria criteria = example.createCriteria();
-		criteria.andIdEqualTo(userId);
-		criteria.andPasswordEqualTo(password);
-		List<User> list = userService.selectByExample(example);
-		if (list.size() > 0) {
-			User user = new User();
-			user.setId(userId);
-			user.setPassword(newPassword);
-			int result = userService.updatePassword(user);
+		User user = userService.selectByPrimaryKey(userId);
+		String salt = user.getSalt();
+		SimpleHash s=new SimpleHash("md5",password,salt,3);
+		if (s.toString().equals(user.getPassword())) {
+			User user2 = new User();
+			user2.setId(userId);
+			user2.setPassword(newPassword);
+			int result = userService.updatePassword(user2);
 			if (result == 0) {
 				mo = new MessageObject(0, "修改密码失败！");
 			} else {
@@ -66,12 +82,10 @@ public class UserController {
 	@RequestMapping("/testPassword.do")
 	@ResponseBody
 	public String testPassword(@Param("password") String password, Long userId) {
-		UserExample example = new UserExample();
-		Criteria criteria = example.createCriteria();
-		criteria.andIdEqualTo(userId);
-		criteria.andPasswordEqualTo(password);
-		List<User> list = userService.selectByExample(example);
-		if (list.size() > 0) {
+		User user = userService.selectByPrimaryKey(userId);
+		String salt = user.getSalt();
+		SimpleHash s=new SimpleHash("md5",password,salt,3);
+		if (s.toString().equals(user.getPassword())) {
 			return "true";
 		} else {
 			return "false";
@@ -95,7 +109,13 @@ public class UserController {
 	@RequestMapping("/add.do")
 	@ResponseBody
 	public MessageObject add(User user) {
+		System.out.println("addUser");
 		user = (User) EmptyStringToNullUtil.EmptyStringToNull(user);
+		String password=user.getPassword();
+		String salt=SaltUtil.getSalt();
+		SimpleHash s=new SimpleHash("md5",password,salt,3);
+		user.setSalt(salt);
+		user.setPassword(s.toString());
 		user.setCreated(new Date());
 		user.setUpdated(user.getCreated());
 		int delete = userService.insert(user);

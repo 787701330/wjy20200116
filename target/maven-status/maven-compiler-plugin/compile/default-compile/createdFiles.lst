@@ -23,6 +23,7 @@ com/wjy/space/util/TimeUtil.class
 com/wjy/space/mo/MessageObject.class
 com/wjy/space/util/FastDfsUtil.class
 com/wjy/space/pojo/PermissionExample.class
+com/wjy/space/util/SaltUtil.class
 com/wjy/space/util/FileSizeUtil.class
 com/wjy/space/pojo/Permission.class
 com/wjy/space/pojo/UserExample$GeneratedCriteria.class

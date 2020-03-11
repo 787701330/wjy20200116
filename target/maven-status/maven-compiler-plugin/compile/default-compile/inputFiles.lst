@@ -25,6 +25,7 @@
 /media/wujunya/1decb1b3-c71c-4488-9fb5-2c76d0f76c96/eclipse-workspace/wjy20200116/src/main/java/com/wjy/space/pojo/PermissionExample.java
 /media/wujunya/1decb1b3-c71c-4488-9fb5-2c76d0f76c96/eclipse-workspace/wjy20200116/src/main/java/com/wjy/space/util/TimeUtil.java
 /media/wujunya/1decb1b3-c71c-4488-9fb5-2c76d0f76c96/eclipse-workspace/wjy20200116/src/main/java/com/wjy/space/controller/UserController.java
+/media/wujunya/1decb1b3-c71c-4488-9fb5-2c76d0f76c96/eclipse-workspace/wjy20200116/src/main/java/com/wjy/space/util/SaltUtil.java
 /media/wujunya/1decb1b3-c71c-4488-9fb5-2c76d0f76c96/eclipse-workspace/wjy20200116/src/main/java/com/wjy/space/pojo/Role.java
 /media/wujunya/1decb1b3-c71c-4488-9fb5-2c76d0f76c96/eclipse-workspace/wjy20200116/src/main/java/com/wjy/space/mo/MessageObject.java
 /media/wujunya/1decb1b3-c71c-4488-9fb5-2c76d0f76c96/eclipse-workspace/wjy20200116/src/main/java/com/wjy/space/service/UserService.java
