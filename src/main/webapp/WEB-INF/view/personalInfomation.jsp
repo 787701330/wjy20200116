@@ -11,26 +11,19 @@
 <meta name="viewport"
 	content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
-<link rel="Bookmark" href="/favicon.ico">
+<link rel="Bookmark" href="/favicon.ico" >
 <link rel="Shortcut Icon" href="/favicon.ico" />
 <!--[if lt IE 9]>
-<script type="text/javascript" src="/lib/html5shiv.js"></script>
-<script type="text/javascript" src="/lib/respond.min.js"></script>
+<script type="text/javascript" src="lib/html5shiv.js"></script>
+<script type="text/javascript" src="lib/respond.min.js"></script>
 <![endif]-->
-<link rel="stylesheet" type="text/css"
-	href="/static/h-ui/css/H-ui.min.css" />
-<link rel="stylesheet" type="text/css"
-	href="/static/h-ui.admin/css/H-ui.admin.css" />
-<link rel="stylesheet" type="text/css"
-	href="/lib/Hui-iconfont/1.0.8/iconfont.css" />
-<link rel="stylesheet" type="text/css"
-	href="/static/h-ui.admin/skin/default/skin.css" id="skin" />
-<link rel="stylesheet" type="text/css"
-	href="/static/h-ui.admin/css/style.css" />
-<link rel="stylesheet" type="text/css"
-	href="/lib/zTree_v3-master/css/demo.css" />
-<link rel="stylesheet" type="text/css"
-	href="/lib/zTree_v3-master/css/zTreeStyle/zTreeStyle.css" />
+<link rel="stylesheet" type="text/css" href="/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="/static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="/lib/Hui-iconfont/1.0.8/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="/static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="/static/h-ui.admin/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/lib/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="/lib/bootstrap-table-master/bootstrap-table.css"/>
 <!--[if IE 6]>
 <script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
@@ -57,7 +50,7 @@
 				<div style="display: none;">
 					<input type="text" class="input-text" value="${user.realname}"
 						id="realname" name="realname"> <a title="确定"
-						href="javascript:;" onclick="Ifno_submit(this)"
+						href="javascript:;" onclick="Info_submit(this)"
 						style="text-decoration: none;"><i><span
 							class="glyphicon glyphicon-ok" style="top: 5px"></span></i></a><a
 						title="取消" href="javascript:;" onclick="Info_remove(this)"
@@ -84,7 +77,7 @@
 				<div style="display: none;">
 					<input type="text" class="input-text" value="${user.phone}"
 						id="phone" name="phone"> <a title="确定" href="javascript:;"
-						onclick="Ifno_submit(this)" style="text-decoration: none;"><i><span
+						onclick="Info_submit(this)" style="text-decoration: none;"><i><span
 							class="glyphicon glyphicon-ok" style="top: 5px"></span></i></a><a
 						title="取消" href="javascript:;" onclick="Info_remove(this)"
 						style="text-decoration: none;"><i class=""><span
@@ -103,7 +96,7 @@
 				<div style="display: none;">
 					<input type="text" class="input-text" value="${user.email}"
 						id="email" name="email"> <a title="确定" href="javascript:;"
-						onclick="Ifno_submit(this)" style="text-decoration: none;"><i><span
+						onclick="Info_submit(this)" style="text-decoration: none;"><i><span
 							class="glyphicon glyphicon-ok" style="top: 5px"></span></i></a><a
 						title="取消" href="javascript:;" onclick="Info_remove(this)"
 						style="text-decoration: none;"><i class=""><span
@@ -114,33 +107,18 @@
 	</article>
 
 	<!--_footer 作为公共模版分离出去-->
-	<script type="text/javascript"
-		src="/lib/jquery-1.11.3/jquery-1.11.3/jquery.min.js"></script>
-	<script type="text/javascript" src="/lib/layer/2.4/layer.js"></script>
-	<script type="text/javascript" src="/static/h-ui/js/H-ui.min.js"></script>
-	<script type="text/javascript"
-		src="/static/h-ui.admin/js/H-ui.admin.js"></script>
-	<!--/_footer /作为公共模版分离出去-->
+<script type="text/javascript" src="/lib/jquery-1.11.3/jquery-1.11.3/jquery.min.js"></script> 
+<script type="text/javascript" src="/lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="/static/h-ui/js/H-ui.min.js"></script> 
+<script type="text/javascript" src="/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
 
-	<!--请在下方写此页面业务相关的脚本-->
-	<script type="text/javascript"
-		src="/lib/My97DatePicker/4.8/WdatePicker.js"></script>
-	<script type="text/javascript"
-		src="/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
-	<script type="text/javascript"
-		src="/lib/jquery.validation/1.14.0/validate-methods.js"></script>
-	<script type="text/javascript"
-		src="/lib/jquery.validation/1.14.0/messages_zh.js"></script>
-	<script type="text/javascript"
-		src="/lib/webuploader/0.1.5/webuploader.min.js"></script>
-	<script type="text/javascript"
-		src="/lib/ueditor/1.4.3/ueditor.config.js"></script>
-	<script type="text/javascript"
-		src="/lib/ueditor/1.4.3/ueditor.all.min.js"></script>
-	<script type="text/javascript"
-		src="/lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
-	<script type="text/javascript"
-		src="/lib/zTree_v3-master/js/jquery.ztree.all.js"></script>
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="/lib/My97DatePicker/4.8/WdatePicker.js"></script> 
+<script type="text/javascript" src="/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
+<script type="text/javascript" src="/lib/laypage/1.2/laypage.js"></script>
+<script type="text/javascript" src="/lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/lib/bootstrap-table-master/bootstrap-table.js"></script>
+<script type="text/javascript" src="/lib/bootstrap-table-master/locale/bootstrap-table-zh-CN.js"></script>
 	<script type="text/javascript">
 		$(function() {
 			var gender = '${user.gender}'
@@ -171,18 +149,17 @@
 		}
 
 		function Info_submit(obj) {
-			var a = $(obj);
-			var name = a.prev().attr(name);
-			var val = a.prev().attr(value);
+			var a= $(obj);
+			var name = a.prev().attr("name")+"";
+			var val = a.prev().val();
 			var id = '${user.id}';
+			var user={"id":id};
+			user[name]=val;
 			$.ajax({
 				url : "/user/updateInfomation.do",
 				type : 'post',
 				async : false,
-				data : {
-					name : val,
-					'id' : id
-				},
+				data : user,
 				success : function() {
 					window.location.reload();
 				},

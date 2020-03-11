@@ -42,6 +42,7 @@ public class UserController {
 		return "personalInfomation";
 	}
 
+	@ResponseBody
 	@RequestMapping("/updateInfomation.do")
 	public MessageObject updateInfomation(User user,HttpServletRequest request) {
 		MessageObject mo = null;
