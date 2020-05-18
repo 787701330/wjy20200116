@@ -9,10 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.wjy.space.controller.UserController;
-import com.wjy.space.pojo.User;
-import com.wjy.space.service.UserService;
-import com.wjy.space.util.FastDfsUtil;
+import cn.wujunya.space.controller.UserController;
+import cn.wujunya.space.pojo.User;
+import cn.wujunya.space.service.UserService;
+import cn.wujunya.space.util.FastDfsUtil;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:spring.xml")

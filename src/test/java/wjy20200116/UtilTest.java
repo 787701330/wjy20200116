@@ -9,8 +9,8 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.wjy.space.pojo.User;
-import com.wjy.space.util.EmptyStringToNullUtil;
+import cn.wujunya.space.pojo.User;
+import cn.wujunya.space.util.EmptyStringToNullUtil;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:spring.xml")
@@ -29,4 +29,5 @@ public class UtilTest {
 		String string = UUID.randomUUID().toString();
 		System.out.println(string);
 	}
+	
 }

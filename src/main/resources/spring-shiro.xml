@@ -6,7 +6,7 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
 	<bean id="myFromAuthenticationFilte"
-		class="com.wjy.space.shiro.MyFromAuthenticationFilte" />
+		class="cn.wujunya.space.shiro.MyFromAuthenticationFilte" />
 
 	<aop:config proxy-target-class="true"></aop:config>
 
@@ -45,7 +45,7 @@
 		<property name="rememberMeManager" ref="rememberMeManager" />
 	</bean>
 
-	<bean id="customRealm" class="com.wjy.space.realm.CustomRealm">
+	<bean id="customRealm" class="cn.wujunya.space.realm.CustomRealm">
 		<property name="credentialsMatcher" ref="credentialsMatcher"></property>
 	</bean>
 
