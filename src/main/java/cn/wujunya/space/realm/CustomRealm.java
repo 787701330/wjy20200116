@@ -47,7 +47,7 @@ public class CustomRealm extends AuthorizingRealm{
 			permissionIdsList.add(Long.valueOf(permissionId));
 		}
 		PermissionExample example=new PermissionExample();
-		com.wjy.space.pojo.PermissionExample.Criteria criteria = example.createCriteria();
+		cn.wujunya.space.pojo.PermissionExample.Criteria criteria = example.createCriteria();
 		criteria.andPermissionIdIn(permissionIdsList);
 		List<Permission> permissions=permissionService.selectByExample(example);
 		SimpleAuthorizationInfo authorizationInfo=new SimpleAuthorizationInfo();

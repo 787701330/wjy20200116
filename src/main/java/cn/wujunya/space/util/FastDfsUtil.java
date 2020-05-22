@@ -119,6 +119,7 @@ public class FastDfsUtil {
 	}
 	
 	public static int fdfsDeleteFile1(String fileId) throws IOException, MyException {
+		System.out.println(fileId);
 		return storageClient.delete_file1(fileId);
 	}
 	

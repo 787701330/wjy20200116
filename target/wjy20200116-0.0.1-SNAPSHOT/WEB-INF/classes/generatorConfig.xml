@@ -14,16 +14,16 @@
     <!-- 数据库四要素 -->
     <jdbcConnection connectionURL="jdbc:mysql://localhost:3306/test" driverClass="org.gjt.mm.mysql.Driver" password="root" userId="root" />
     <!-- 实体类  -->
-    <javaModelGenerator targetPackage="com.wjy.space.pojo" targetProject="src/main/java" />
+    <javaModelGenerator targetPackage="cn.wujunya.space.pojo" targetProject="src/main/java" />
     <!-- 映射文件 -->
-    <sqlMapGenerator targetPackage="com.wjy.space.mapper" targetProject="src/main/java" />
+    <sqlMapGenerator targetPackage="cn.wujunya.space.mapper" targetProject="src/main/java" />
     
     <!-- ANNOTATEDMAPPER
     	XMLMAPPER
      -->
     
     <!-- 操作接口 -->
-    <javaClientGenerator  targetPackage="com.wjy.space.mapper" targetProject="src/main/java" type="XMLMAPPER" />
+    <javaClientGenerator  targetPackage="cn.wujunya.space.mapper" targetProject="src/main/java" type="XMLMAPPER" />
     <table  tableName="t_user"  domainObjectName="User"  enableCountByExample="true" enableDeleteByExample="false" enableSelectByExample="true" enableUpdateByExample="false"></table>
     <table  tableName="t_storage" domainObjectName="Storage" enableCountByExample="true" enableDeleteByExample="false" enableSelectByExample="true" enableUpdateByExample="false"></table>
     <table  tableName="t_permission" domainObjectName="Permission" enableCountByExample="true" enableDeleteByExample="false" enableSelectByExample="true" enableUpdateByExample="false"></table>

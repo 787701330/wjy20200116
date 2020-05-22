@@ -117,7 +117,7 @@
     </trim>
   </sql>
   <sql id="Base_Column_List">
-    id, name, user_id, created, updated, size, state, parent, is_folder
+    id, name, user_id, created, updated, size, state, parent, is_folder,adress
   </sql>
   <sql id="Blob_Column_List">
     adress

@@ -272,7 +272,6 @@ public class StorageServiceImpl implements StorageService {
 				if (result == 0) {
 					return 0;
 				}
-
 			} else {
 				String adress = s.getAdress();
 				int r = FastDfsUtil.fdfsDeleteFile1(adress);
