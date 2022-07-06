@@ -17,7 +17,7 @@
 		<mysql.version>5.1.26</mysql.version>
 		<aspect.version>1.7.4</aspect.version>
 		<spring.version>4.3.2.RELEASE</spring.version>
-		<shiro.version>1.2.3</shiro.version>
+		<shiro.version>1.9.1</shiro.version>
 		<ehcache.version>2.6.0</ehcache.version>
 		<log4j.version>1.2.17</log4j.version>
 		<slf4j.version>1.6.6</slf4j.version>
